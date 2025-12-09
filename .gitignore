@@ -1,34 +1,134 @@
-# Gradle files
-.gradle/
-build/
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mehndi Booking Form</title>
 
-# Local configuration file (sdk path, etc)
-local.properties
+<style>
+body{
+  font-family: Arial;
+  background: linear-gradient(to right,#fcb69f,#ffecd2);
+  padding: 20px;
+}
+.container{
+  background: white;
+  max-width: 450px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+}
+h2{
+  text-align:center;
+  color:#d81b60;
+}
+label{
+  font-weight:bold;
+  display:block;
+  margin-top: 10px;
+}
+input,select,textarea{
+  width:100%;
+  padding:8px;
+  border-radius:5px;
+  border:1px solid #ccc;
+  margin-top:5px;
+}
+button{
+  background:#d81b60;
+  color:white;
+  padding:10px;
+  border:none;
+  width:100%;
+  margin-top:15px;
+  border-radius:5px;
+  cursor:pointer;
+}
+button:hover{
+  background:#880e4f;
+}
+.price{
+  background:#f8bbd0;
+  padding:8px;
+  border-radius:5px;
+  margin-top:10px;
+}
+</style>
 
-# Log/OS Files
-*.log
+<script>
+function showRate() {
+  var type = document.getElementById("mehndiType").value;
+  var price = document.getElementById("price");
 
-# Android Studio generated files and folders
-captures/
-.externalNativeBuild/
-.cxx/
-*.aab
-*.apk
-output-metadata.json
+  if(type=="Simple"){
+    price.innerHTML="₹200 per hand";
+  }
+  else if(type=="Arabic"){
+    price.innerHTML="₹350 per hand";
+  }
+  else if(type=="Bridal"){
+    price.innerHTML="₹2000 onwards";
+  }
+  else if(type=="Full"){
+    price.innerHTML="₹600 per hand";
+  }
+}
+</script>
 
-# IntelliJ
-*.iml
-.idea/
-misc.xml
-deploymentTargetDropDown.xml
-render.experimental.xml
+</head>
+<body>
 
-# Keystore files
-*.jks
-*.keystore
+<div class="container">
+  <h2>Mehndi Registration Form</h2>
+<form>
 
-# Google Services (e.g. APIs or Firebase)
-google-services.json
+<label>Full Name:</label>
+<input type="text" required>
 
-# Android Profiling
-*.hprof
+<label>Age:</label>
+<input type="number" required>
+
+<label>Mobile No:</label>
+<input type="tel" required>
+
+<label>Occasion:</label>
+<select>
+<option>Wedding</option>
+<option>Festival</option>
+<option>Engagement</option>
+<option>Party</option>
+<option>Other</option>
+</select>
+
+<label>Event Date:</label>
+<input type="date">
+
+<label>Address:</label>
+<textarea></textarea>
+
+<label>Mehndi Type:</label>
+<select id="mehndiType" onchange="showRate()">
+<option>Select</option>
+<option value="Simple">Simple</option>
+<option value="Arabic">Arabic</option>
+<option value="Bridal">Bridal</option>
+<option value="Full">Full Hand</option>
+</select>
+
+<div class="price">
+<b>Rate:</b> <span id="price">Select Mehndi Type</span>
+</div>
+
+<label>Number of Hands:</label>
+<input type="number">
+
+<label>Special Design Request:</label>
+<textarea></textarea>
+
+<button type="submit">Book Now</button>
+
+</form>
+</div>
+
+</body>
+</html>
